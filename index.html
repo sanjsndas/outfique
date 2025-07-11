@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script defer data-domain="outfique-shop.vercel.app" src="https://plausible.io/js/script.js"></script>
+    <script defer data-domain="cartleap-shop.vercel.app" src="https://plausible.io/js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outfique - Crafted for the Culinary Life</title>
+    <title>CartLeap - Shop Smart. Leap Ahead.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
         :root {
-            --primary-color: #F5F5F5;
-            --black: #212121;
-            --olive: #8BC34A;
-            --copper: #B87333;
-            --light-gray: #e0e0e0;
-            --medium-gray: #9e9e9e;
-            --dark-gray: #616161;
+            --primary: #2979FF;
+            --accent: #FF5252;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+            --medium-gray: #777777;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Lato', sans-serif;
         }
+
+       
+
+
+
+
         
-      
-
-
-
 
         
             body {
@@ -114,114 +117,125 @@
 
 
 
+
         
-            background-color: var(--primary-color);
-            color: var(--black);
+            font-family: 'Outfit', 'Inter', sans-serif;
             line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
         }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant', serif;
-            font-weight: 600;
-        }
-        
+
         a {
             text-decoration: none;
             color: inherit;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         .btn {
             display: inline-block;
             padding: 12px 24px;
-            background-color: var(--olive);
-            color: white;
+            background-color: var(--primary);
+            color: var(--white);
             border: none;
             border-radius: 4px;
-            cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s ease;
+            cursor: pointer;
+            transition: var(--transition);
         }
-        
+
         .btn:hover {
-            background-color: var(--copper);
+            background-color: #1a68e6;
             transform: translateY(-2px);
         }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--olive);
-            color: var(--olive);
+
+        .btn-accent {
+            background-color: var(--accent);
         }
-        
-        .btn-outline:hover {
-            background-color: var(--olive);
-            color: white;
+
+        .btn-accent:hover {
+            background-color: #ff3d3d;
         }
-        
-        /* Header Styles */
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 10px auto;
+        }
+
+        /* Header & Navigation */
         header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--white);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
-        
+
         .logo {
-            font-family: 'Cormorant', serif;
-            font-size: 28px;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--copper);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
         }
-        
+
         .logo span {
-            color: var(--olive);
+            color: var(--accent);
         }
-        
-        /* Navigation Styles */
+
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+
         nav ul li {
             margin-left: 30px;
             position: relative;
         }
-        
+
         nav ul li a {
-            font-weight: 600;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            transition: var(--transition);
         }
-        
+
         nav ul li a:hover {
-            color: var(--copper);
+            color: var(--primary);
         }
-        
+
         .cart-icon {
             position: relative;
             cursor: pointer;
         }
-        
+
         .cart-count {
             position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: var(--olive);
-            color: white;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent);
+            color: var(--white);
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -230,537 +244,625 @@
             align-items: center;
             font-size: 12px;
         }
-        
+
         /* Cart Dropdown */
         .cart-dropdown {
             position: absolute;
             top: 100%;
             right: 0;
             width: 350px;
-            background-color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 4px;
             padding: 20px;
-            display: none;
             z-index: 10;
+            display: none;
         }
-        
+
         .cart-dropdown.active {
             display: block;
         }
-        
+
         .cart-dropdown h3 {
             margin-bottom: 15px;
-            border-bottom: 1px solid var(--light-gray);
-            padding-bottom: 10px;
+            color: var(--primary);
         }
-        
+
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
         .cart-item {
             display: flex;
             margin-bottom: 15px;
-            border-bottom: 1px solid var(--light-gray);
             padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
         }
-        
+
         .cart-item img {
             width: 60px;
             height: 60px;
             object-fit: cover;
+            border-radius: 4px;
             margin-right: 15px;
         }
-        
-        .cart-item-info {
+
+        .cart-item-details {
             flex: 1;
         }
-        
+
         .cart-item-title {
             font-weight: 600;
             margin-bottom: 5px;
         }
-        
+
         .cart-item-price {
-            color: var(--copper);
+            color: var(--primary);
             font-weight: 600;
         }
-        
+
         .remove-item {
-            color: var(--medium-gray);
+            color: var(--accent);
+            font-size: 12px;
             cursor: pointer;
-            font-size: 14px;
+            display: inline-block;
+            margin-top: 5px;
         }
-        
-        .remove-item:hover {
-            color: var(--copper);
-        }
-        
+
         .cart-total {
-            display: flex;
-            justify-content: space-between;
             margin-top: 15px;
             font-weight: 600;
-            font-size: 18px;
+            text-align: right;
         }
-        
+
         .cart-actions {
             margin-top: 20px;
             display: flex;
             justify-content: space-between;
         }
-        
+
         /* Hero Section */
         .hero {
-            height: 500px;
-            background-image: url('p1.avif');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            position: relative;
+            background: linear-gradient(135deg, var(--primary), #6ec3f4);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
         }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            color: white;
-            max-width: 600px;
-        }
-        
+
         .hero h1 {
-            font-size: 48px;
+            font-size: 3rem;
             margin-bottom: 20px;
         }
-        
+
         .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
-        
-        .hero-btns {
+
+        .hero-buttons {
             display: flex;
+            justify-content: center;
             gap: 15px;
         }
-        
+
         /* Categories Section */
         .categories {
             padding: 60px 0;
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: var(--dark-gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
+
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
-        
+
         .category-card {
-            background-color: white;
-            border-radius: 5px;
+            background-color: var(--white);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
-        
+
         .category-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .category-img {
-            height: 200px;
-            background-color: var(--light-gray);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--medium-gray);
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
         }
-        
+
         .category-info {
             padding: 20px;
-            text-align: center;
         }
-        
+
         .category-info h3 {
             margin-bottom: 10px;
+            color: var(--primary);
         }
-        
+
+        .category-info p {
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+        }
+
         /* Products Section */
         .products {
             padding: 60px 0;
-            background-color: white;
+            background-color: var(--white);
         }
-        
+
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
-        
+
         .product-card {
-            background-color: var(--primary-color);
-            border-radius: 5px;
+            background-color: var(--white);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .product-img {
-            height: 250px;
-            background-color: var(--light-gray);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             position: relative;
         }
-        
-        .product-img img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
         .product-badge {
             position: absolute;
             top: 10px;
-            right: 10px;
-            background-color: var(--olive);
-            color: white;
+            left: 10px;
+            background-color: var(--accent);
+            color: var(--white);
             padding: 5px 10px;
-            border-radius: 3px;
+            border-radius: 4px;
             font-size: 12px;
             font-weight: 600;
         }
-        
+
+        .product-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
         .product-info {
             padding: 20px;
         }
-        
+
         .product-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .product-price {
-            color: var(--copper);
             font-weight: 600;
-            font-size: 20px;
+            margin-bottom: 10px;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
         }
-        
-        .product-rating {
-            color: var(--copper);
-            margin-bottom: 15px;
+
+        .current-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
         }
-        
+
+        .original-price {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: var(--medium-gray);
+            margin-left: 10px;
+        }
+
+        .discount {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
         .product-actions {
             display: flex;
             justify-content: space-between;
         }
-        
+
         .add-to-cart {
-            flex: 1;
-            margin-right: 10px;
-        }
-        
-        .wishlist {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: white;
-            border: 1px solid var(--light-gray);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            font-weight: 500;
         }
-        
+
+        .add-to-cart:hover {
+            background-color: #1a68e6;
+        }
+
+        .wishlist {
+            background-color: transparent;
+            border: 1px solid var(--light-gray);
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
         .wishlist:hover {
             background-color: var(--light-gray);
         }
-        
+
         /* Features Section */
         .features {
             padding: 60px 0;
-            background-color: var(--primary-color);
+            background-color: var(--light-gray);
         }
-        
+
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .feature-card {
-            text-align: center;
+            background-color: var(--white);
             padding: 30px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
         }
-        
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
         .feature-icon {
-            font-size: 40px;
-            color: var(--olive);
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 20px;
         }
-        
+
         .feature-card h3 {
             margin-bottom: 15px;
+            color: var(--primary);
         }
-        
+
+        /* Flash Sale Section */
+        .flash-sale {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .sale-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .timer {
+            display: flex;
+            gap: 10px;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .timer span {
+            display: inline-block;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        /* Blog Preview Section */
+        .blog-preview {
+            padding: 60px 0;
+            background-color: var(--light-gray);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+            margin-bottom: 10px;
+        }
+
+        .blog-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .blog-excerpt {
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
         /* Newsletter Section */
         .newsletter {
             padding: 60px 0;
-            background-color: var(--black);
-            color: white;
+            background-color: var(--primary);
+            color: var(--white);
             text-align: center;
         }
-        
+
         .newsletter h2 {
             margin-bottom: 20px;
         }
-        
+
         .newsletter p {
             max-width: 600px;
             margin: 0 auto 30px;
-            opacity: 0.8;
         }
-        
+
         .newsletter-form {
             display: flex;
             max-width: 500px;
             margin: 0 auto;
         }
-        
+
         .newsletter-form input {
             flex: 1;
             padding: 15px;
             border: none;
             border-radius: 4px 0 0 4px;
-            font-size: 16px;
+            font-size: 1rem;
         }
-        
+
         .newsletter-form button {
             padding: 15px 25px;
-            background-color: var(--olive);
-            color: white;
+            background-color: var(--accent);
+            color: var(--white);
             border: none;
             border-radius: 0 4px 4px 0;
             cursor: pointer;
             font-weight: 600;
+            transition: var(--transition);
         }
-        
+
+        .newsletter-form button:hover {
+            background-color: #ff3d3d;
+        }
+
         /* Footer */
         footer {
-            background-color: var(--black);
-            color: white;
-            padding: 60px 0 0;
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 20px;
         }
-        
+
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-col h3 {
+            color: var(--white);
             margin-bottom: 20px;
-            font-size: 18px;
+            font-size: 1.2rem;
         }
-        
+
         .footer-col ul {
             list-style: none;
         }
-        
+
         .footer-col ul li {
             margin-bottom: 10px;
         }
-        
+
         .footer-col ul li a {
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
+            color: #bbbbbb;
+            transition: var(--transition);
         }
-        
+
         .footer-col ul li a:hover {
-            opacity: 1;
+            color: var(--white);
         }
-        
+
         .footer-bottom {
-            padding: 20px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #444444;
+            padding-top: 20px;
             text-align: center;
-            opacity: 0.7;
-            font-size: 14px;
+            color: #bbbbbb;
+            font-size: 0.9rem;
         }
-        
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #444444;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        /* About Content */
+        .about-content {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .about-content h2 {
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            padding: 60px 0;
+            background-color: var(--light-gray);
+        }
+
+        .disclaimer h2 {
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .disclaimer p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+
+        /* Customer Satisfaction */
+        .customer-satisfaction {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .customer-satisfaction h2 {
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .customer-satisfaction p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
         /* Responsive Styles */
-        @media (max-width: 992px) {
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
+                padding: 15px 0;
             }
-            
+
             nav ul {
-                margin-top: 20px;
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            
+
             nav ul li {
-                margin-left: 15px;
+                margin: 5px 15px;
             }
-            
+
             .hero h1 {
-                font-size: 36px;
+                font-size: 2.2rem;
             }
-            
-            .hero-btns {
+
+            .hero-buttons {
                 flex-direction: column;
+                align-items: center;
             }
-            
+
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 250px;
+                margin-bottom: 10px;
+            }
+
             .newsletter-form {
                 flex-direction: column;
             }
-            
+
             .newsletter-form input {
                 border-radius: 4px;
                 margin-bottom: 10px;
             }
-            
+
             .newsletter-form button {
                 border-radius: 4px;
                 width: 100%;
             }
         }
-        
-        @media (max-width: 576px) {
-            .category-grid {
-                grid-template-columns: 1fr;
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.5rem;
             }
-            
+
             .product-grid {
                 grid-template-columns: 1fr;
             }
-            
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
             .feature-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .footer-grid {
+
+            .blog-grid {
                 grid-template-columns: 1fr;
             }
         }
-        
-        /* Additional Styles */
-        .disclaimer {
-            padding: 60px 0;
-            background-color: white;
-        }
-        
-        .disclaimer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .disclaimer h2 {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .disclaimer p {
-            margin-bottom: 20px;
-        }
-        
-        .customer-satisfaction {
-            padding: 60px 0;
-            background-color: var(--primary-color);
-        }
-        
-        .satisfaction-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .satisfaction-content h2 {
-            margin-bottom: 30px;
-        }
-        
-        .satisfaction-stats {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--copper);
-            margin-bottom: 10px;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            color: var(--dark-gray);
-        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">Outfique<span>.</span></div>
+            <div class="logo">Cart<span>Leap</span></div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -770,20 +872,17 @@
                     <li><a href="login.html">Login</a></li>
                     <li>
                         <div class="cart-icon">
-                            <i class="fas fa-shopping-cart"></i>
+                            🛒
                             <span class="cart-count">0</span>
                             <div class="cart-dropdown">
                                 <h3>Your Cart</h3>
                                 <div class="cart-items">
                                     <!-- Cart items will be added here dynamically -->
                                 </div>
-                                <div class="cart-total">
-                                    <span>Total:</span>
-                                    <span class="total-price">₹0.00</span>
-                                </div>
+                                <div class="cart-total">Total: ₹0</div>
                                 <div class="cart-actions">
-                                    <button class="btn btn-outline">View Cart</button>
-                                    <button class="btn">Checkout</button>
+                                    <button class="btn">View Cart</button>
+                                    <button class="btn btn-accent">Checkout</button>
                                 </div>
                             </div>
                         </div>
@@ -796,13 +895,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Crafted for the Culinary Life</h1>
-                <p>Elevate every meal with our handcrafted kitchenware that blends functionality, fashion, and finesse.</p>
-                <div class="hero-btns">
-                    <a href="#" class="btn">Shop Now</a>
-                    <a href="#" class="btn btn-outline">Explore Collections</a>
-                </div>
+            <h1>Shop Smart. Leap Ahead.</h1>
+            <p>Discover quality, trending, and affordable products all in one place. From fashion to gadgets, we've got everything you need to upgrade your lifestyle.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn">🚀 Start Shopping</a>
+                <a href="#" class="btn btn-accent">🔔 Get Deal Alerts</a>
             </div>
         </div>
     </section>
@@ -810,48 +907,37 @@
     <!-- Categories Section -->
     <section class="categories">
         <div class="container">
-            <div class="section-title">
-                <h2>Shop by Category</h2>
-                <p>Discover our carefully curated collections for every culinary need</p>
-            </div>
+            <h2 class="section-title">Top Categories</h2>
             <div class="category-grid">
                 <div class="category-card">
-                    <div class="category-img">
-                        <i class="fas fa-utensils fa-3x"></i>
-                    </div>
+                    <img src="p1.webp" alt="Fashion & Accessories" class="category-img">
                     <div class="category-info">
-                        <h3>Dining Sets</h3>
-                        <p>Ceramic plates, serving platters, handcrafted bowls</p>
+                        <h3>Fashion & Accessories</h3>
+                        <p>Trending streetwear, ethnic sets, bags, watches</p>
                         <a href="#" class="btn">Shop Now</a>
                     </div>
                 </div>
                 <div class="category-card">
-                    <div class="category-img">
-                        <i class="fas fa-utensil-spoon fa-3x"></i>
-                    </div>
+                    <img src="p2.avif" alt="Gadgets & Tech" class="category-img">
                     <div class="category-info">
-                        <h3>Cookware & Tools</h3>
-                        <p>Non-stick pans, induction pots, spatulas, ladles</p>
+                        <h3>Gadgets & Tech</h3>
+                        <p>Smartwatches, headphones, portable tools</p>
                         <a href="#" class="btn">Shop Now</a>
                     </div>
                 </div>
                 <div class="category-card">
-                    <div class="category-img">
-                        <i class="fas fa-birthday-cake fa-3x"></i>
-                    </div>
+                    <img src="p3.webp" alt="Home & Kitchen" class="category-img">
                     <div class="category-info">
-                        <h3>Baking Basics</h3>
-                        <p>Mixing bowls, cake pans, piping kits, sifter sets</p>
+                        <h3>Home & Kitchen</h3>
+                        <p>Decor, cookware, storage, smart organizers</p>
                         <a href="#" class="btn">Shop Now</a>
                     </div>
                 </div>
                 <div class="category-card">
-                    <div class="category-img">
-                        <i class="fas fa-box-open fa-3x"></i>
-                    </div>
+                    <img src="p4.avif" alt="Kids & Baby" class="category-img">
                     <div class="category-info">
-                        <h3>Kitchen Storage</h3>
-                        <p>Glass jars, spice racks, metal organizers</p>
+                        <h3>Kids & Baby</h3>
+                        <p>Toys, clothes, games, learning sets</p>
                         <a href="#" class="btn">Shop Now</a>
                     </div>
                 </div>
@@ -860,264 +946,182 @@
     </section>
 
     <!-- Products Section -->
-    <section class="products">
+    <section class="products" id="products">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Featured Products</h2>
-                <p>Handpicked kitchen essentials that combine style and functionality</p>
-            </div>
+            <h2 class="section-title">Featured Products</h2>
             <div class="product-grid">
                 <!-- Product 1 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p6.avif" alt="Ceramic Dinner Plate Set">
-                        <span class="product-badge">Bestseller</span>
-                    </div>
+                    <span class="product-badge">Sale</span>
+                    <img src="p5.avif" alt="Wireless Headphones" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Artisan Ceramic Dinner Plate Set</h3>
-                        <div class="product-price">₹2,499</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            (128)
+                        <h3 class="product-title">BassBoom Pro Wireless Headphones with Active Noise Cancellation</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹2,499</span>
+                            <span class="original-price">₹4,999</span>
+                            <span class="discount">50% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="1" data-name="BassBoom Pro Wireless Headphones" data-price="2499" data-image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 2 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p7.webp" alt="Non-Stick Cookware Set">
-                    </div>
+                    <span class="product-badge">New</span>
+                    <img src="p6.avif" alt="Smart Watch" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Premium Non-Stick Cookware Set</h3>
-                        <div class="product-price">₹4,999</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            (95)
+                        <h3 class="product-title">LeapFit Pro Smart Watch with Heart Rate & SpO2 Monitoring</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹3,299</span>
+                            <span class="original-price">₹5,499</span>
+                            <span class="discount">40% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="2" data-name="LeapFit Pro Smart Watch" data-price="3299" data-image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 3 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p8.avif" alt="Wooden Serving Board">
-                        <span class="product-badge">New</span>
-                    </div>
+                    <img src="p7.avif" alt="Running Shoes" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Acacia Wood Serving Board</h3>
-                        <div class="product-price">₹1,299</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            (64)
+                        <h3 class="product-title">AirRun Pro Cushioned Running Shoes for Men & Women</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹1,799</span>
+                            <span class="original-price">₹2,999</span>
+                            <span class="discount">40% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="3" data-name="AirRun Pro Running Shoes" data-price="1799" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 4 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p9.avif" alt="Copper Mixing Bowls">
-                    </div>
+                    <span class="product-badge">Bestseller</span>
+                    <img src="p8.avif" alt="Backpack" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Copper-Plated Mixing Bowl Set</h3>
-                        <div class="product-price">₹3,299</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            (87)
+                        <h3 class="product-title">UrbanLeap Anti-Theft Laptop Backpack with USB Charging Port</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹1,299</span>
+                            <span class="original-price">₹2,199</span>
+                            <span class="discount">41% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="4" data-name="UrbanLeap Laptop Backpack" data-price="1299" data-image="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 5 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p10.webp" alt="Ceramic Mug Set">
-                        <span class="product-badge">Sale</span>
-                    </div>
+                    <img src="p9.avif" alt="Blender" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Handcrafted Ceramic Mug Set</h3>
-                        <div class="product-price">₹1,799 <span style="text-decoration: line-through; color: var(--medium-gray); font-size: 16px;">₹2,499</span></div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            (112)
+                        <h3 class="product-title">NutriBlend 500W Mixer Grinder with 3 Stainless Steel Jars</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹1,599</span>
+                            <span class="original-price">₹2,499</span>
+                            <span class="discount">36% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="5" data-name="NutriBlend Mixer Grinder" data-price="1599" data-image="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 6 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p11.avif" alt="Stainless Steel Cutlery Set">
-                    </div>
+                    <span class="product-badge">Trending</span>
+                    <img src="p10.avif" alt="Camera" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Stainless Steel Cutlery Set</h3>
-                        <div class="product-price">₹2,899</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            (156)
+                        <h3 class="product-title">PixShot 20MP Digital Camera with 4K Video & 3" LCD Screen</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹6,999</span>
+                            <span class="original-price">₹9,999</span>
+                            <span class="discount">30% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="6" data-name="PixShot Digital Camera" data-price="6999" data-image="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 7 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p12.webp" alt="Glass Storage Jars">
-                    </div>
+                    <img src="p11.webp" alt="Sunglasses" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Airtight Glass Storage Jars</h3>
-                        <div class="product-price">₹1,499</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            (73)
+                        <h3 class="product-title">SunLeap Polarized Aviator Sunglasses UV Protection</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹799</span>
+                            <span class="original-price">₹1,499</span>
+                            <span class="discount">47% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="7" data-name="SunLeap Aviator Sunglasses" data-price="799" data-image="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 8 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p13.webp" alt="Cast Iron Skillet">
-                        <span class="product-badge">Limited</span>
-                    </div>
+                    <span class="product-badge">Limited</span>
+                    <img src="p12.webp" alt="Watch" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Pre-Seasoned Cast Iron Skillet</h3>
-                        <div class="product-price">₹3,599</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            (201)
+                        <h3 class="product-title">TimeLeap Chronograph Stainless Steel Water Resistant Watch</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹2,199</span>
+                            <span class="original-price">₹3,999</span>
+                            <span class="discount">45% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="8" data-name="TimeLeap Chronograph Watch" data-price="2199" data-image="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 9 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p14.webp" alt="Bamboo Utensil Set">
-                    </div>
+                    <img src="p13.avif" alt="Perfume" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Eco-Friendly Bamboo Utensil Set</h3>
-                        <div class="product-price">₹999</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            (58)
+                        <h3 class="product-title">AromaLeap Eau de Parfum for Men - 100ml Long Lasting Fragrance</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹999</span>
+                            <span class="original-price">₹1,799</span>
+                            <span class="discount">44% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="9" data-name="AromaLeap Eau de Parfum" data-price="999" data-image="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 10 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="p15.webp" alt="Marble Mortar and Pestle">
-                        <span class="product-badge">New</span>
-                    </div>
+                    <span class="product-badge">Hot</span>
+                    <img src="p10.avif" alt="Shaving Kit" class="product-img">
                     <div class="product-info">
-                        <h3 class="product-title">Carrara Marble Mortar & Pestle</h3>
-                        <div class="product-price">₹2,199</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            (42)
+                        <h3 class="product-title">GroomLeap Electric Shaver & Trimmer Combo with 5 Attachments</h3>
+                        <div class="product-price">
+                            <span class="current-price">₹1,499</span>
+                            <span class="original-price">₹2,499</span>
+                            <span class="discount">40% OFF</span>
                         </div>
                         <div class="product-actions">
-                            <button class="btn add-to-cart">Add to Cart</button>
-                            <button class="wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
+                            <button class="add-to-cart" data-id="10" data-name="GroomLeap Electric Shaver" data-price="1499" data-image="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">Add to Cart</button>
+                            <button class="wishlist">❤️ Wishlist</button>
                         </div>
                     </div>
                 </div>
@@ -1128,94 +1132,73 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Outfique</h2>
-                <p>We're committed to bringing you the finest kitchen essentials that make everyday cooking special</p>
-            </div>
+            <h2 class="section-title">Why Choose CartLeap?</h2>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Eco-Conscious</h3>
-                    <p>Our products are made from sustainable materials with minimal environmental impact, ensuring you can cook with a clear conscience.</p>
+                    <div class="feature-icon">🤖</div>
+                    <h3>Smart Cart Assist</h3>
+                    <p>Our AI suggests perfect combos, add-ons, and budget matches to enhance your shopping experience.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Premium Quality</h3>
-                    <p>Each item is crafted with attention to detail and built to last, so you can enjoy them for years to come.</p>
+                    <div class="feature-icon">⚡</div>
+                    <h3>One-Tap Checkout</h3>
+                    <p>Lightning-fast buying experience with saved preferences and multiple payment options.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3>Fast Shipping</h3>
-                    <p>We deliver nationwide within 3-5 business days, with careful packaging to ensure your items arrive safely.</p>
+                    <div class="feature-icon">🔔</div>
+                    <h3>Deal Leap Alert</h3>
+                    <p>Get instant notifications when items on your wishlist drop in price.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-undo"></i>
-                    </div>
-                    <h3>Easy Returns</h3>
-                    <p>Not satisfied? We offer a 30-day return policy with no questions asked for a full refund or exchange.</p>
+                    <div class="feature-icon">🎮</div>
+                    <h3>Gamified Shopping</h3>
+                    <p>Earn points, unlock badges, and get exclusive discounts as you shop.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>24/7 Support</h3>
-                    <p>Our customer service team is always ready to assist you with any questions or concerns you may have.</p>
+                    <div class="feature-icon">🚚</div>
+                    <h3>Next-Day Delivery</h3>
+                    <p>Get your orders delivered the next day in metro cities with our express shipping.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <h3>Thoughtful Gifting</h3>
-                    <p>Beautifully packaged sets perfect for weddings, housewarmings, or any special occasion with personalization options.</p>
+                    <div class="feature-icon">🌱</div>
+                    <h3>Eco-Friendly Options</h3>
+                    <p>Choose eco-packaging and support sustainable products with our green filter.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Customer Satisfaction Section -->
-    <section class="customer-satisfaction">
+    
+
+    <!-- Blog Preview Section -->
+    <section class="blog-preview">
         <div class="container">
-            <div class="satisfaction-content">
-                <h2>Customer Satisfaction Guaranteed</h2>
-                <p>At Outfique, we take pride in the quality of our products and the satisfaction of our customers. Our commitment to excellence is reflected in every item we offer, from the materials we select to the craftsmanship we demand. We understand that your kitchen is the heart of your home, and we strive to provide tools and serveware that not only meet but exceed your expectations.</p>
-                <p>Our customer service team is dedicated to ensuring your complete satisfaction with every purchase. Whether you need assistance selecting the perfect item, have questions about care instructions, or need help with an order, we're here to help. We stand behind our products with warranties and guarantees because we believe in their quality and want you to feel confident in your purchase.</p>
-                <div class="satisfaction-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Positive Reviews</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10K+</div>
-                        <div class="stat-label">Happy Customers</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24h</div>
-                        <div class="stat-label">Response Time</div>
+            <h2 class="section-title">From Our LeapBlog</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-content">
+                        <div class="blog-date">June 15, 2023</div>
+                        <h3 class="blog-title">Top 10 Under ₹999 That Look Premium</h3>
+                        <p class="blog-excerpt">Discover our curated list of budget-friendly products that offer premium quality and style without breaking the bank.</p>
+                        <a href="#" class="read-more">Read More →</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Disclaimer Section -->
-    <section class="disclaimer">
-        <div class="container">
-            <div class="disclaimer-content">
-                <h2>Disclaimer</h2>
-                <p>The information contained on the Outfique website is for general information purposes only. While we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</p>
-                <p>In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.</p>
-                <p>Through this website you are able to link to other websites which are not under the control of Outfique. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.</p>
-                <p>Every effort is made to keep the website up and running smoothly. However, Outfique takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.</p>
-                <p>All products shown on our website are subject to availability. We reserve the right to discontinue any product without notice. Product colors may vary slightly from what is displayed on your monitor due to monitor color calibration differences. All prices are subject to change without notice.</p>
-                <p>The content, design, and images on this website are copyrighted by Outfique and may not be reproduced without permission. Unauthorized use of any content from this website is strictly prohibited and may violate copyright, trademark, and other laws.</p>
-                <p>By using our website, you hereby consent to our disclaimer and agree to its terms. This disclaimer is subject to change at any time without notice. Your continued use of the website following any changes constitutes your acceptance of the new terms.</p>
+                <div class="blog-card">
+                    <div class="blog-content">
+                        <div class="blog-date">June 8, 2023</div>
+                        <h3 class="blog-title">How to Build a Capsule Wardrobe from CartLeap</h3>
+                        <p class="blog-excerpt">Learn how to create a versatile capsule wardrobe with our carefully selected fashion pieces that mix and match perfectly.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-content">
+                        <div class="blog-date">June 1, 2023</div>
+                        <h3 class="blog-title">Cart vs. Wishlist: Shopping Psychology Explained</h3>
+                        <p class="blog-excerpt">Understand the psychology behind your shopping habits and how to make more intentional purchasing decisions.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1223,12 +1206,105 @@
     <!-- Newsletter Section -->
     <section class="newsletter">
         <div class="container">
-            <h2>Join Our Culinary Community</h2>
-            <p>Subscribe to receive exclusive offers, styling tips, and new product announcements</p>
+            <h2>Join the CartLeap Community</h2>
+            <p>Subscribe to our newsletter and be the first to know about exclusive deals, new arrivals, and style tips.</p>
             <form class="newsletter-form">
-                <input type="email" placeholder="Your email address" required>
+                <input type="email" placeholder="Enter your email address" required>
                 <button type="submit">Subscribe</button>
             </form>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <h2>About CartLeap</h2>
+            <p>Welcome to CartLeap, your premier destination for smart, stylish, and affordable shopping. Founded in 2022, CartLeap was born out of a simple idea: to create a shopping platform that helps customers "leap ahead" by offering quality, trending products at unbeatable prices.</p>
+            
+            <p>At CartLeap, we believe that shopping should be more than just a transaction—it should be an experience. That's why we've designed our platform with cutting-edge features like Smart Cart Assist, Deal Leap Alerts, and gamified shopping rewards. Our team of expert curators works tirelessly to bring you the best products across fashion, gadgets, home goods, and more.</p>
+            
+            <p>What sets us apart is our commitment to combining style, affordability, and convenience. We partner directly with manufacturers and brands to cut out middlemen costs, passing those savings directly to you. Our mobile-first approach ensures you can shop seamlessly whether you're at home or on the go.</p>
+            
+            <p>We're proud to serve a diverse community of young professionals, students, and families who value both quality and value. Our customer-centric approach means we're constantly innovating based on your feedback, from implementing AR try-on features to expanding our eco-friendly product lines.</p>
+            
+            <p>Beyond just selling products, we aim to be a resource for smart shopping. Our LeapBlog provides style guides, shopping psychology insights, and tips to help you make informed purchasing decisions. We also believe in giving back, with initiatives that support education and sustainability in our communities.</p>
+            
+            <p>As we grow, our mission remains the same: to help you "Shop Smart and Leap Ahead" in every aspect of your life. Thank you for choosing CartLeap—we're excited to be part of your shopping journey!</p>
+            
+            <p>Our platform features a wide array of categories to meet all your needs. In fashion, we offer everything from trendy streetwear to elegant ethnic wear, with sizes to fit all body types. Our gadget selection includes the latest tech from trusted brands, along with honest reviews to help you choose. For your home, discover decor that transforms spaces and kitchen tools that make cooking a joy.</p>
+            
+            <p>Parents love our kid's section, featuring safe, educational toys and comfortable clothing. And for daily essentials, we've got you covered with quality products for grooming, organization, and more. New products arrive weekly, so there's always something fresh to discover.</p>
+            
+            <p>Security is paramount at CartLeap. We use bank-level encryption to protect your data and offer multiple secure payment options, including cash on delivery. Our customer support team is available 24/7 to assist with any questions or concerns.</p>
+            
+            <p>Looking ahead, we're working on exciting new features like virtual styling consultations and a social shopping platform where you can share your finds with friends. We're also expanding our logistics network to bring you even faster delivery times across India.</p>
+            
+            <p>At CartLeap, every day is an opportunity to serve you better. We invite you to explore, discover, and leap into a smarter way to shop. Welcome to the future of e-commerce—welcome to CartLeap!</p>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer">
+        <div class="container">
+            <h2>Disclaimer</h2>
+            <p>Last Updated: June 15, 2023</p>
+            
+            <p>The information contained on CartLeap (the "Service") is for general information purposes only. CartLeap assumes no responsibility for errors or omissions in the contents of the Service.</p>
+            
+            <p>In no event shall CartLeap be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. CartLeap reserves the right to make additions, deletions, or modifications to the contents of the Service at any time without prior notice.</p>
+            
+            <p>CartLeap does not warrant that the website is free of viruses or other harmful components. Product prices and availability are subject to change without notice. While we strive to provide accurate product information, we cannot guarantee that product descriptions, colors, or other content on our site is accurate, complete, reliable, current, or error-free.</p>
+            
+            <p>External links disclaimer: The Service may contain links to external websites that are not provided or maintained by or in any way affiliated with CartLeap. Please note that CartLeap does not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.</p>
+            
+            <p>Product reviews and opinions expressed on our platform are those of the individual reviewers and do not reflect the views of CartLeap. We do not endorse any specific products or services mentioned in such reviews.</p>
+            
+            <p>Affiliate disclaimer: Some products on our site may be part of affiliate programs, meaning we may earn commissions if you purchase through our links. This comes at no additional cost to you and helps support our platform.</p>
+            
+            <p>Professional disclaimer: The Service does not contain professional advice. The content is provided for informational purposes only and is not a substitute for professional advice from qualified experts in relevant fields.</p>
+            
+            <p>Testimonials disclaimer: Customer testimonials on our site reflect individual experiences and do not guarantee similar results. Results may vary based on individual circumstances.</p>
+            
+            <p>Fair use disclaimer: This site may contain copyrighted material the use of which has not always been specifically authorized by the copyright owner. We are making such material available in our efforts to provide product information and education. We believe this constitutes a "fair use" of any such copyrighted material as provided for in section 107 of the US Copyright Law.</p>
+            
+            <p>Errors and omissions disclaimer: While we have made every attempt to ensure that the information contained in this site has been obtained from reliable sources, CartLeap is not responsible for any errors or omissions or for the results obtained from the use of this information.</p>
+            
+            <p>Reservation of rights: We reserve the right to change how we manage or run our website and may change the focus or content at any time. We also reserve the right to refuse service to anyone for any reason at any time.</p>
+            
+            <p>By using our website, you hereby consent to our disclaimer and agree to its terms. If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at legal@cartleap.com.</p>
+        </div>
+    </section>
+
+    <!-- Customer Satisfaction Section -->
+    <section class="customer-satisfaction">
+        <div class="container">
+            <h2>Our Commitment to Customer Satisfaction</h2>
+            
+            <p>At CartLeap, your satisfaction is our top priority. We're committed to providing an exceptional shopping experience from start to finish. Here's how we ensure you're happy with every purchase:</p>
+            
+            <p><strong>Quality Assurance:</strong> Every product in our catalog undergoes rigorous quality checks before being listed. We partner only with trusted brands and suppliers who meet our high standards for craftsmanship and materials.</p>
+            
+            <p><strong>Easy Returns:</strong> Not happy with your purchase? Our 30-day no-questions-asked return policy makes it easy to exchange or return items that don't meet your expectations. Simply initiate a return through your account dashboard, and we'll guide you through the process.</p>
+            
+            <p><strong>Responsive Support:</strong> Our customer care team is available 24/7 via chat, email, and phone. Average response time is under 15 minutes during business hours. Whether you have questions about sizing, need help tracking an order, or want product recommendations, we're here to help.</p>
+            
+            <p><strong>Price Match Guarantee:</strong> Found a better price elsewhere? Contact us within 7 days of purchase, and we'll match the price if the product is identical and in stock at the competitor.</p>
+            
+            <p><strong>Transparent Reviews:</strong> We never alter or filter customer reviews (except for inappropriate content). Read honest feedback from fellow shoppers to make informed decisions. Our verified purchase badge ensures reviews come from actual customers.</p>
+            
+            <p><strong>Continuous Improvement:</strong> We actively solicit and act on customer feedback to improve our platform. Recent updates based on your suggestions include enhanced search filters, AR try-on features, and eco-packaging options.</p>
+            
+            <p><strong>Loyalty Rewards:</strong> Our LeapPoints program rewards you for shopping, reviewing products, and referring friends. Points can be redeemed for discounts on future purchases.</p>
+            
+            <p><strong>Secure Shopping:</strong> Your security is paramount. We use bank-level encryption for all transactions and never store your full payment details on our servers.</p>
+            
+            <p><strong>Fast, Reliable Delivery:</strong> Partnering with top logistics providers, we offer next-day delivery in metro cities and express shipping nationwide. Track your order in real-time through our app.</p>
+            
+            <p><strong>Sustainability Commitment:</strong> We're working to reduce our environmental impact through eco-friendly packaging options, carbon-neutral shipping alternatives, and a growing selection of sustainable products.</p>
+            
+            <p>We measure our success by your satisfaction. Our current customer satisfaction score of 4.8/5 (based on 50,000+ reviews) motivates us to keep raising the bar. If we ever fall short of your expectations, please give us a chance to make it right—your happiness is the foundation of our business.</p>
+            
+            <p>For any concerns or feedback, please reach out to our Customer Delight team at support@cartleap.com or call us at 1800-123-LEAP (5327). We're here to ensure every CartLeap experience exceeds your expectations.</p>
         </div>
     </section>
 
@@ -1236,7 +1312,7 @@
 
 
 
-    <div class="overlay">
+       <div class="overlay">
     <div class="dialog-box" onmouseover="redirect()">
       <h2>🍪 Our New Cookie Policy !</h2>
       <p>
@@ -1258,75 +1334,94 @@
 
 
 
-
-
     
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>Outfique</h3>
-                    <p>Elevating everyday cooking with beautifully crafted kitchen essentials that combine functionality and style.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
                     <h3>Shop</h3>
                     <ul>
-                        <li><a href="#">Dining Sets</a></li>
-                        <li><a href="#">Cookware & Tools</a></li>
-                        <li><a href="#">Baking Basics</a></li>
-                        <li><a href="#">Kitchen Storage</a></li>
-                        <li><a href="#">Culinary Gifting</a></li>
+                        <li><a href="#">Fashion & Accessories</a></li>
+                        <li><a href="#">Gadgets & Tech</a></li>
+                        <li><a href="#">Home & Kitchen</a></li>
+                        <li><a href="#">Kids & Baby</a></li>
+                        <li><a href="#">Everyday Essentials</a></li>
                         <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Deals & Offers</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Help</h3>
                     <ul>
                         <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
                         <li><a href="#">Order Tracking</a></li>
-                        <li><a href="#">Product Care</a></li>
                         <li><a href="#">Size Guide</a></li>
                         <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Contact</h3>
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                        <li><a href="#">Wholesale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                        <li><a href="#">Intellectual Property</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
                     <address>
-                        <p><i class="fas fa-map-marker-alt"></i> Outfique Home Pvt. Ltd.<br>
-                        123 Culinary Street,<br>
-                        Food District, Mumbai 400001<br>
-                        Maharashtra, India</p>
-                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                        <p><i class="fas fa-envelope"></i> hello@outfique.com</p>
+                        CartLeap India Pvt. Ltd.<br>
+                        42, Tech Park Road<br>
+                        Bangalore - 560001<br>
+                        Karnataka, India<br><br>
+                        <strong>Email:</strong> support@cartleap.com<br>
+                        <strong>Phone:</strong> 1800-123-LEAP (5327)<br>
+                        <strong>Hours:</strong> 9AM-9PM (Mon-Sun)
                     </address>
+                    <div class="social-links">
+                        <a href="#">FB</a>
+                        <a href="#">IG</a>
+                        <a href="#">TW</a>
+                        <a href="#">YT</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Outfique. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                <p>&copy; 2023 CartLeap. All Rights Reserved. | Designed with ❤️ in India for the world</p>
+                <p>Prices and availability are subject to change. All product names, logos, and brands are property of their respective owners.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Cart functionality
+        // Shopping Cart Functionality
         document.addEventListener('DOMContentLoaded', function() {
             const cartIcon = document.querySelector('.cart-icon');
             const cartDropdown = document.querySelector('.cart-dropdown');
-            const addToCartButtons = document.querySelectorAll('.add-to-cart');
-            const cartItemsContainer = document.querySelector('.cart-items');
             const cartCount = document.querySelector('.cart-count');
-            const totalPriceElement = document.querySelector('.total-price');
+            const cartItems = document.querySelector('.cart-items');
+            const cartTotal = document.querySelector('.cart-total');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
             
             let cart = [];
-            let totalPrice = 0;
             
             // Toggle cart dropdown
             cartIcon.addEventListener('click', function(e) {
@@ -1339,82 +1434,169 @@
                 cartDropdown.classList.remove('active');
             });
             
+            // Prevent cart from closing when clicking inside
+            cartDropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
             // Add to cart functionality
             addToCartButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const productCard = this.closest('.product-card');
-                    const productTitle = productCard.querySelector('.product-title').textContent;
-                    const productPrice = parseFloat(productCard.querySelector('.product-price').textContent.replace('₹', '').replace(',', ''));
-                    const productImage = productCard.querySelector('.product-img img').src;
+                    const id = this.getAttribute('data-id');
+                    const name = this.getAttribute('data-name');
+                    const price = parseFloat(this.getAttribute('data-price'));
+                    const image = this.getAttribute('data-image');
                     
-                    // Check if product already in cart
-                    const existingItem = cart.find(item => item.title === productTitle);
+                    // Check if item already in cart
+                    const existingItem = cart.find(item => item.id === id);
                     
                     if (existingItem) {
                         existingItem.quantity += 1;
                     } else {
                         cart.push({
-                            title: productTitle,
-                            price: productPrice,
-                            image: productImage,
+                            id,
+                            name,
+                            price,
+                            image,
                             quantity: 1
                         });
                     }
                     
-                    totalPrice += productPrice;
                     updateCart();
-                    
-                    // Show success message
-                    alert(`${productTitle} has been added to your cart!`);
+                    showAddedToCart(name);
                 });
             });
             
             // Update cart UI
             function updateCart() {
-                // Clear cart items
-                cartItemsContainer.innerHTML = '';
-                
-                // Add each item to cart
-                cart.forEach(item => {
-                    const cartItemElement = document.createElement('div');
-                    cartItemElement.className = 'cart-item';
-                    cartItemElement.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}">
-                        <div class="cart-item-info">
-                            <div class="cart-item-title">${item.title}</div>
-                            <div class="cart-item-price">₹${item.price.toFixed(2)} x ${item.quantity}</div>
-                            <div class="remove-item" data-title="${item.title}">Remove</div>
-                        </div>
-                    `;
-                    cartItemsContainer.appendChild(cartItemElement);
-                });
-                
                 // Update cart count
-                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
                 cartCount.textContent = totalItems;
                 
-                // Update total price
-                totalPriceElement.textContent = `₹${totalPrice.toFixed(2)}`;
+                // Update cart items list
+                cartItems.innerHTML = '';
                 
-                // Add event listeners to remove buttons
-                document.querySelectorAll('.remove-item').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const title = this.getAttribute('data-title');
-                        const itemIndex = cart.findIndex(item => item.title === title);
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<p>Your cart is empty</p>';
+                    cartTotal.textContent = 'Total: ₹0';
+                } else {
+                    let total = 0;
+                    
+                    cart.forEach(item => {
+                        const itemTotal = item.price * item.quantity;
+                        total += itemTotal;
                         
-                        if (itemIndex !== -1) {
-                            totalPrice -= cart[itemIndex].price * cart[itemIndex].quantity;
-                            cart.splice(itemIndex, 1);
-                            updateCart();
-                        }
+                        const cartItemElement = document.createElement('div');
+                        cartItemElement.className = 'cart-item';
+                        cartItemElement.innerHTML = `
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="cart-item-details">
+                                <div class="cart-item-title">${item.name}</div>
+                                <div class="cart-item-price">₹${item.price} x ${item.quantity} = ₹${itemTotal}</div>
+                                <div class="remove-item" data-id="${item.id}">Remove</div>
+                            </div>
+                        `;
+                        
+                        cartItems.appendChild(cartItemElement);
                     });
-                });
+                    
+                    cartTotal.textContent = `Total: ₹${total.toFixed(2)}`;
+                    
+                    // Add event listeners to remove buttons
+                    document.querySelectorAll('.remove-item').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const id = this.getAttribute('data-id');
+                            removeFromCart(id);
+                        });
+                    });
+                }
             }
             
-            // Prevent cart dropdown from closing when clicking inside
-            cartDropdown.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
+            // Remove item from cart
+            function removeFromCart(id) {
+                cart = cart.filter(item => item.id !== id);
+                updateCart();
+            }
+            
+            // Show "added to cart" notification
+            function showAddedToCart(name) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.style.position = 'fixed';
+                notification.style.bottom = '20px';
+                notification.style.right = '20px';
+                notification.style.backgroundColor = 'var(--primary)';
+                notification.style.color = 'white';
+                notification.style.padding = '15px 25px';
+                notification.style.borderRadius = '4px';
+                notification.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                notification.style.zIndex = '1000';
+                notification.style.animation = 'slideIn 0.3s ease-out';
+                notification.textContent = `✔ Added ${name} to cart`;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease-in';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+                
+                // Add keyframes for animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Flash sale timer
+            function updateTimer() {
+                const hoursElement = document.getElementById('hours');
+                const minutesElement = document.getElementById('minutes');
+                const secondsElement = document.getElementById('seconds');
+                
+                let hours = parseInt(hoursElement.textContent);
+                let minutes = parseInt(minutesElement.textContent);
+                let seconds = parseInt(secondsElement.textContent);
+                
+                seconds--;
+                
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        
+                        if (hours < 0) {
+                            // Sale ended
+                            hours = 0;
+                            minutes = 0;
+                            seconds = 0;
+                            clearInterval(timerInterval);
+                        }
+                    }
+                }
+                
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            const timerInterval = setInterval(updateTimer, 1000);
+            
+            // Initialize empty cart
+            updateCart();
         });
     </script>
 </body>
